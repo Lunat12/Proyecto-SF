@@ -1,6 +1,7 @@
+
 import random
 from matplotlib import pyplot as plt
-
+import datetime
 
 def graf(listN):
     listD = []
@@ -8,8 +9,10 @@ def graf(listN):
     for n in listN:
         date += 1
         listD.append(date)
+    print(listD)
     plt.plot(listD,listN)
-    plt.show
+    plt.show()
+    
 
 
 print('WELCOME TO THE BASIC TRADING BOT')
@@ -20,7 +23,6 @@ currency = input('Select a currency to work with: ').title()
 
 try:
     money = float(input('How much money do you want to invest: '))
-
     H_resistance = float(input('Wheres the highest point you wanna be taking your money out (percentage): '))
     L_resistance = float(input('Wheres the lowest point you wanna be taking your money out (percentage):'))
 except:
@@ -42,3 +44,4 @@ while isActive:
         isActive = False
 
 graf(points)
+
