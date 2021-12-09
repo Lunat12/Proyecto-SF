@@ -27,7 +27,7 @@ password=tk.StringVar()
 entrada=tk.Entry(root,textvariable=usuario,width=40)
 entrada.place(x=440,y=262)
 
-entrada1=tk.Entry(root,textvariable=password,width=40)
+entrada1=tk.Entry(root,textvariable=password,width=40,show="*")
 entrada1.place(x=440,y=385)
 
 
@@ -64,7 +64,7 @@ def registro():
     entrada=tk.Entry(window7,textvariable=usuarioLog,width=40)
     entrada.place(x=440,y=262)
 
-    entrada1=tk.Entry(window7,textvariable=passwordLog,width=40)
+    entrada1=tk.Entry(window7,textvariable=passwordLog,width=40,show="*")
     entrada1.place(x=440,y=385)
 
     boton2=tk.Button(window7,command = lambda: entryUser(usuarioLog.get(),passwordLog.get()),text="Registrado", cursor="hand2",bg="#92B805",width=19,relief="flat",font=("Arial",12))
@@ -110,7 +110,9 @@ def login():
     if state:
         correcta()
     else:
-        pass
+        incorrecta()
+
+
 
 def correcta():
     root.withdraw()
@@ -127,11 +129,18 @@ def correcta():
     boton3=tk.Button(window,text="Regresar",command=regreso,cursor="hand2",relief="flat",bg=fondo_correcto,font=("Comic Sans MS",12,"bold"))
     boton3.place(x=180,y=400)
 
+def incorrecta():
+    window=tk.Toplevel()
+    window.title("Error")
+    window.geometry("800x800+500+50")
+    window.resizable(width=False,height=False)
+
+    def regreso3():
+        window.withdraw()
+        root.deiconify()
     
-
-
-
-
+    boton31=tk.Button(window,text="Intentar de nuevo.",command=regreso3,cursor="hand2",width=19,relief="flat",bg=fondo_incorrecto,font=("Comic Sans MS",12,"bold"))
+    boton31.place(x=148,y=400)
 #ventanas_botones
 
 

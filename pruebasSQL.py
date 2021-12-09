@@ -28,8 +28,9 @@ def sql_table(conn):
 
 def addInfo(IDs, currentName, currentPasword):
     global currentID
+    IdSum = IDs[-1]
     currentID = 1
-    currentID += len(IDs)
+    currentID += IdSum[0]
  
 
     entities = (currentID, currentName, currentPasword)
